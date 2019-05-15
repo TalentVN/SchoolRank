@@ -196,7 +196,7 @@ namespace TalentVN.SchoolRank
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=SRank}/{action=Index}/{id?}");
             });
         }
 

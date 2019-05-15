@@ -1,0 +1,93 @@
+﻿@{
+
+}
+@using Newtonsoft.Json
+
+<head>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Multiple-Select-Plugin-jQuery-Bootstrap-4/dist/css/paraia_multi_select.css">
+        <script src="~/Multiple-Select-Plugin-jQuery-Bootstrap-4/dist/js/paraia_multi_select.min.js"></script>*@
+</head>
+
+<body>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Chon Chuyen Nganh</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <br>
+                    <input type="text" class="form-control" name="brands" data-paraia-multi-select="true" placeholder="Select a brand">
+                    <br>
+                    <button class="btn btn-primary" id="show_selected">Show Selected Items</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // You'd better put the code inside ready() function
+        $(document).ready(function () {
+            // Items to select
+            var items = [{
+                value: 11,
+                text: 'Apple'
+            }, {
+                value: 12,
+                text: 'Nokia'
+            }, {
+                value: 13,
+                text: 'Sony'
+            }, {
+                value: 14,
+                text: 'LG'
+            }, {
+                value: 15,
+                text: 'HTC'
+            }, {
+                value: 16,
+                text: 'Motorola'
+            }, {
+                value: 17,
+                text: 'Samsung'
+            }, {
+                value: 18,
+                text: 'ZTE'
+            }, {
+                value: 'asdsadsadsadasdsadsad',
+                text: 'Asus'
+            }, {
+                value: 'asdasfsdgdfhertret',
+                text: 'Alcatel'
+                }];
+
+            // Initialize paraia-multi-select
+            var select = $('[data-paraia-multi-select="true"]').paraia_multi_select({
+                multi_select: true,
+                items: @Html.Raw(JsonConvert.SerializeObject(ViewData["validItems"])),
+                defaults: @Html.Raw(JsonConvert.SerializeObject(ViewData["invalidIds"])),
+                rtl: false
+            })
+
+            // Get selected items
+            $('#show_selected').click(function () {
+                alert(select.paraia_multi_select('get_items'))
+            });
+        });
+    </script>
+</body>
+
+

@@ -16,7 +16,9 @@ namespace TalentVN.Infrastructure.Data
 
         public DbSet<SchoolProfile> SchoolProfiles { get; set; }
         public DbSet<Specialized> Specializeds { get; set; }
+        public DbSet<EducationProgram> EducationPrograms { get; set; }
         public DbSet<SRank> SRanks { get; set; }
         public DbSet<SRankItem> SRankItems { get; set; }
+        public DbSet<Article> Articles { get; set; }
     }
 }

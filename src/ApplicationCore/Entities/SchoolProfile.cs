@@ -10,6 +10,7 @@ namespace TalentVN.ApplicationCore.Entities
         public SchoolProfile()
         {
             Specializeds = new HashSet<Specialized>();
+            EducationPrograms = new HashSet<EducationProgram>();
         }
 
         public string Id { get; set; }
@@ -28,5 +29,7 @@ namespace TalentVN.ApplicationCore.Entities
         public string WebSite { get; set; }
 
         public virtual ICollection<Specialized> Specializeds { get; set; }
+
+        public virtual ICollection<EducationProgram> EducationPrograms { get; set; }
     }
 }

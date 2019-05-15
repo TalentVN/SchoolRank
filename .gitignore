@@ -1,0 +1,7 @@
+src/ApplicationCore/bin/
+src/.vs/
+src/ApplicationCore/obj/
+src/Infrastructure/bin/
+src/Infrastructure/obj/
+src/SchoolRank/bin/
+src/SchoolRank/obj/

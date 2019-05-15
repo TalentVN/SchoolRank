@@ -18,6 +18,46 @@ namespace Infrastructure.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("TalentVN.ApplicationCore.Entities.Article", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("ImageUrl");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("PostedBy");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Articles");
+                });
+
+            modelBuilder.Entity("TalentVN.ApplicationCore.Entities.EducationProgram", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("SchoolProfileId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SchoolProfileId");
+
+                    b.ToTable("EducationPrograms");
+                });
+
             modelBuilder.Entity("TalentVN.ApplicationCore.Entities.SRank", b =>
                 {
                     b.Property<string>("Id")
@@ -94,6 +134,13 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("SchoolProfileId");
 
                     b.ToTable("Specializeds");
+                });
+
+            modelBuilder.Entity("TalentVN.ApplicationCore.Entities.EducationProgram", b =>
+                {
+                    b.HasOne("TalentVN.ApplicationCore.Entities.SchoolProfile")
+                        .WithMany("EducationPrograms")
+                        .HasForeignKey("SchoolProfileId");
                 });
 
             modelBuilder.Entity("TalentVN.ApplicationCore.Entities.SRankItem", b =>

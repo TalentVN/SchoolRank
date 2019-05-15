@@ -1,0 +1,36 @@
+﻿@model TalentVN.ApplicationCore.Entities.Article
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card border-0">
+
+    <div class="card-body">
+        <div class="">
+            <img src="https://i.pinimg.com/originals/f8/30/e6/f830e639764a93e4edb984bb7ce814e0.png" class="img-thumbnail" alt="Cinque Terre" width="50" height="50">  @Html.Raw(Model.PostedBy)
+        </div>
+        <div class="">
+            Edit Time: @Html.Raw(Model.CreatedDate)
+        </div>
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+        <h3>@Html.Raw(Model.Title)</h3>
+    </div>
+
+    <div class="card-body">
+        <div>
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+
+    <div class="raw card-footer">
+       Created Date: @Html.Raw(Model.CreatedDate)
+    </div>
+
+
+</div>
